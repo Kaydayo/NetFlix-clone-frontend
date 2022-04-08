@@ -1,0 +1,6 @@
+.hero{
+    position: relative;
+    height: 500px;
+    color: white;
+    object-fit: contain;
+}
