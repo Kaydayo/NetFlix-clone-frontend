@@ -13,10 +13,14 @@
     transition-timing-function: ease-in;
     transition: all 0.5s;
     z-index: 1;
+    background-color: transparent;
+    
+    
 }
 .header_color{
-    background-color: black;
     position:fixed;
+    background-color: black;
+    
 }
 .netflixLogo img{
     width: 5rem;

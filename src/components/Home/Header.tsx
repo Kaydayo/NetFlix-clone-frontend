@@ -4,13 +4,13 @@ import avatar from '../../Assets/avatar.png'
 import './Header.css'
 
 const Header = () => {
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
 
     const handleNavEffect = () => {
         if(window.scrollY > 100){
-            setShow(false)
-        }else{
             setShow(true)
+        }else{
+            setShow(false)
         }
     }
 
