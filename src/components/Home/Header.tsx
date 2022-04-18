@@ -22,7 +22,16 @@ return (
     <div className={`header ${show && "header_color"}`}>
         <div className="netflixLogo">
         <img src={netflixImg} alt="netflix logo" />
+        <div className={`list-na ${show && 'red-style'}`}>
+            <ul>
+                <li>Home</li>
+                <li>about</li>
+                <li>sign up</li>
+                <li>sponsorship</li>
+            </ul>
         </div>
+        </div>
+        
         <div className="avatar">
             <img src={avatar} alt="avatar" />
         </div>

@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { IRow, IMovie} from '../../interfaces/movieInterface'
 import axios from '../../utils/axios'
 import  './Row.css'
+import Movie from './Movie'
 
-function Row({title, fetchUrl, isLargeRow = false}:IRow) {
+function Row({title, fetchUrl, isLargeRow }:IRow) {
   const [movies, setMovies] = useState<Array<IMovie>>([])
+  
+  
   const base_url = "https://image.tmdb.org/t/p/original"
 
   useEffect(()=>{
@@ -23,13 +26,13 @@ function Row({title, fetchUrl, isLargeRow = false}:IRow) {
      <h2>{title}</h2>
 <div className="row_posters">
 {movies.map((movie:IMovie) => (
-    <img
-    className = {`row_poster ${isLargeRow && "row_posterLarge"}`} 
-    key = {movie.id}
-    src={`${base_url}${
-         isLargeRow ? movie.poster_path : movie.backdrop_path
-       }`} alt={movie.name} />
-     ))}
+    (isLargeRow && movie.poster_path) || 
+    (!isLargeRow && movie.backdrop_path ))&& (
+      <Movie key = {movie.id} isLargeRow={isLargeRow} movie={movie} base_url={base_url}/> 
+    )
+      
+  )
+     }
 </div>
     
    </div>

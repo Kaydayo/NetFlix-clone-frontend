@@ -22,3 +22,9 @@ export interface IRow {
     isLargeRow?: boolean;
 
 }
+
+export interface MovieProp{
+    isLargeRow?: boolean;
+    movie: IMovie;
+    base_url: string;
+}

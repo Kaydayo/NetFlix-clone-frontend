@@ -1,0 +1,35 @@
+.hover-settings{
+    width: 100%;
+    bottom: 0;
+    height: 100%;
+    gap: 0.2rem;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(200, 14, 14, 0.171),
+        rgba(197, 15, 15, 0.829)
+    );
+ 
+}
+.title{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-weight: 100;
+    width: fit-content;
+    font-size: 0.8rem;
+    padding: 3px;
+    border-radius: 0.2rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s;
+}
+.over{
+    font-size: 8px;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    transition: all 0.2s;
+}
+.bth{
+    position: absolute;
+    bottom: 0.3rem;
+    transition: opacity 0.8s;
+}
