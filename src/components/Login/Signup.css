@@ -1,0 +1,144 @@
+.signup-form{
+    position: relative;
+    z-index: 1;
+    align-content: center;
+    margin: 0 auto;
+    display: flex;
+    top: 5%;
+    gap: 2rem;
+    padding: 5rem;
+    width: 20%;
+    min-width: 300px;
+    background-color: rgba(0, 0, 0, 0.76);
+    flex-direction: column;
+    animation: movesign ease-in-out 2s;
+    transition: all 0.8s;
+}
+
+
+@keyframes movesign {
+    0%{
+        transform-origin: top right ;
+        transform: rotateZ(30deg);  
+    }
+    40%{
+        transform-origin: top right ;
+        transform: rotateZ(-20deg);  
+    }
+    60%{
+        transform-origin: top right ;
+        transform: rotateZ(10deg);  
+    }
+    80%{
+        transform-origin: top right ;
+        transform: rotateZ(2deg);  
+    }
+    100%{
+        transform-origin: top right ;
+        transform: rotateZ(0);
+    }
+    
+}
+.signup-form h1{
+    color: white;
+    text-align: left;
+    font-size: 1.8rem;
+}
+
+.signup-form input[name="email"]{
+    height: 3rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.signup-form input[name="password"]{
+    height: 3rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.signup-form button{
+    width: 100%;
+}
+.btn-btm{
+    color: rgb(209, 209, 209);
+    display: flex;
+    justify-content: space-between;
+    font-weight: 100;
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+}
+input[type='checkbox']{
+    font: inherit;
+    accent-color: grey;
+    background-color: transparent;
+    width: 1.15em;
+    height: 1.15em;
+    border-radius: 0.15em;
+    border: 1px solid rgb(63, 63, 63) ;
+    margin-left: 2px;
+    cursor: pointer;
+}
+.signup-hid{
+    color: rgb(85, 85, 85);
+}
+.signup-hid>a{
+    color: white;
+    margin-left: 8px;
+    text-decoration: none;
+}
+.signup-hid>a:hover{
+    text-decoration: underline;
+}
+
+.close-btn{
+    position: absolute;
+    width: fit-content;
+    color: white;
+    top: 15px;
+    font-size: 1.6rem;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close-btn:hover{
+    color: red;
+}
+
+.remember-side{
+    display: flex;
+    gap: 0.5rem;
+}
+.form-label1, .form-label2{
+    position: relative;
+    display: flex;
+  flex-direction: column;
+  transform-origin: top left;
+  transition: all 0.2s ease-out;
+}
+.form-label1 label, .form-label2 label{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 12px;
+    color: rgb(200, 200, 200);
+    pointer-events: none;
+    font-size: 0.9rem;
+    position: absolute;
+    transform: translate(0px, 10px) scale(1);
+  }
+
+  .form-label1:focus-within label, .form-label2:focus-within label {
+    transform: translate(-15px, 2px) scale(0.75);
+  }
+
+  .form-label1 .Active1, .form-label2 .Active2{
+    transform: translate(-15px, 2px) scale(0.75);
+  }

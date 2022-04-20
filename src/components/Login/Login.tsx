@@ -1,26 +1,35 @@
-import React from 'react'
+import React, { useState} from 'react'
 import netflixImg from '../../Assets/netflixImg.png'
+import Banner from './Banner'
 import './Login.css'
+import Signup from './Signup'
+
 
 const Login = () => {
+    const [signUp, setshowSignUp] = useState<boolean>(false)
+
+    const handleSignUp = () => {
+        setshowSignUp(true)
+    }
+
+    const handleSignIn = () => {
+        setshowSignUp(false)
+    }
+
   return (
     <div className="login">
        <div className="loginContainer">
+            
+
            <div className="set-fade1" />
        <div className="loginheader">
-        <img src={netflixImg} alt="logo" />
-        <button className="signup">
-            Sign up
+        <img src={netflixImg} alt="logo-nt" />
+        <button className="signup" onClick={handleSignUp}>
+            Sign In
         </button>
         </div>
-
-        <div className="banner">
-            <h1>Unlimited movies, TV shows, and more.</h1>
-            <h2>Watch anywhere. Cancel anytime.</h2>
-            <div className="form-sect">
-                <h5>Ready to watch? Enter your email to create or restart your membership.</h5>
-            </div>
-        </div>
+       
+        {signUp ? <Signup handleSignIn={handleSignIn} />:<Banner handleSignUp={handleSignUp}/>}
         <div className="set-fade2" />
        </div>
 

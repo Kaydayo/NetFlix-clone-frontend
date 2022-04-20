@@ -11,9 +11,13 @@
 
 .loginheader img{
     height: auto;
-    width: 8rem;
+    width: 10rem;
     filter:saturate(10);
    
+}
+
+.login{
+    position: relative;
 }
 
 button{
@@ -26,6 +30,7 @@ button{
     border-radius: 5px;
     z-index: 1;
     margin-right: 1rem;
+    cursor: pointer;
 
 }
 .set-fade1{
@@ -44,7 +49,7 @@ button{
 
 .set-fade2{
     position: absolute;
-    height: 15rem;
+    height: 20rem;
     background: linear-gradient(
         to bottom,
         transparent,
@@ -70,16 +75,51 @@ button{
     height: auto;
     text-align: center;
     margin-top: 5%;
-    
+    animation: motion ease-in 0.8s ;
+    transition: all 0.8s;
+}
+
+@keyframes motion {
+    0%{opacity: 20%;
+    transform: translateX(-70px);}
+    100%{opacity: 100%;
+        transform: translateX(0px);}
 }
 h1{
     z-index: 1;
     font-size: 3rem;
-    width: 40vw;
+    text-align: center;
+    width: 40rem;
+    margin: 0 auto;
 }
 h2{
     font-weight: 100;
 }
 h5{
-    font-weight: 100;
+    font-weight: 500;
+}
+.form-sect{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.signUpForm{
+    display: flex;
+    align-items: center;
+}
+.signUpForm input{
+    height: 3rem;
+    width: 40vw;
+    outline: none;
+    padding: 15px;
+    box-sizing: border-box;
+    color: grey;
+
+}
+button.getstarted{
+    height: 3rem;
+    cursor: pointer;
+    border-radius: 0;
+    font-weight: 400;
 }

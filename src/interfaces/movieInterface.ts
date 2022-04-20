@@ -28,3 +28,16 @@ export interface MovieProp{
     movie: IMovie;
     base_url: string;
 }
+
+export interface IBanner{
+    handleSignUp: ()=>void;
+}
+
+export interface ISignup{
+    handleSignIn:()=>void;
+}
+
+export type MyData = {
+    email: string,
+    password: string
+}
