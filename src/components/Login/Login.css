@@ -107,6 +107,7 @@ h5{
 .signUpForm{
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 .signUpForm input{
     height: 3rem;
@@ -115,6 +116,7 @@ h5{
     padding: 15px;
     box-sizing: border-box;
     color: grey;
+    
 
 }
 button.getstarted{
@@ -122,4 +124,53 @@ button.getstarted{
     cursor: pointer;
     border-radius: 0;
     font-weight: 400;
+}
+.footer{
+    color: rgb(82, 81, 81);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.349);
+    position: absolute;
+    bottom: 0;
+    padding-left: 5rem;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    gap: 15px;
+    z-index: 5;
+    cursor: pointer;
+}
+
+
+ul li{
+    list-style: none;
+    cursor: pointer;
+}
+.gird-foot{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    cursor: pointer;
+}
+li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px){
+    .banner{
+        transform: scale(0.7);
+        margin: 0 auto;
+        margin-left: -90px;
+        padding: 0;
+        animation: none;
+    }
+    /* .signUpForm input{
+        margin: 0 auto;
+        width: 100%;
+    } */
+    .footer{
+        padding:3px;
+        font-size: 0.5rem;
+    }
 }

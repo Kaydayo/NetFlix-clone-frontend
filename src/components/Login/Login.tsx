@@ -6,7 +6,8 @@ import Signup from './Signup'
 
 
 const Login = () => {
-    const [signUp, setshowSignUp] = useState<boolean>(false)
+    const [signUp, setshowSignUp] = useState<boolean>(false);
+    const [startStep, setStartStep] = useState(false)
 
     const handleSignUp = () => {
         setshowSignUp(true)
@@ -16,6 +17,9 @@ const Login = () => {
         setshowSignUp(false)
     }
 
+    const handleStepRegister = () =>{
+        
+    }
   return (
     <div className="login">
        <div className="loginContainer">
@@ -30,6 +34,27 @@ const Login = () => {
         </div>
        
         {signUp ? <Signup handleSignIn={handleSignIn} />:<Banner handleSignUp={handleSignUp}/>}
+        {!signUp && <div className="footer">
+            <p>Questions? Contact us.</p>
+            <ul className="gird-foot">
+                <li>FAQ</li>
+                <li>Help Center</li>
+                <li>Account</li>
+                <li>Media Center</li>
+                <li>Investor Relations</li>
+                <li>Jobs</li>
+                <li>Ways to Watch</li>
+                <li>Terms of use</li>
+                <li>Privacy</li>
+                <li>Cookie Preferences</li>
+                <li>Corporate Information</li>
+                <li>Contact Us</li>
+                <li>Speed Test</li>
+                <li>Netflix Mujeeb</li>
+            </ul>
+            <p></p>
+            
+            </div>}
         <div className="set-fade2" />
        </div>
 
