@@ -53,6 +53,7 @@
     width: 100%;
     padding: 0.5rem;
     box-sizing: border-box;
+    background-color: rgb(47, 47, 47);
 }
 
 .signup-form input[name="password"]{
@@ -63,6 +64,7 @@
     width: 100%;
     padding: 0.5rem;
     box-sizing: border-box;
+    background-color: rgb(47, 47, 47);
 }
 
 .signup-form button{

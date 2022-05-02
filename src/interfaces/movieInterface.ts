@@ -29,8 +29,14 @@ export interface MovieProp{
     base_url: string;
 }
 
-export interface IBanner{
-    handleSignUp: ()=>void;
+// export interface IBanner{
+//     handleStepRegister: (email:string)=>boolean;
+// }
+
+export type Error = {
+    error: boolean,
+    message: string,
+    next: boolean
 }
 
 export interface ISignup{

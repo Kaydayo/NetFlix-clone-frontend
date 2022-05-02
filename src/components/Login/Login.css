@@ -156,6 +156,14 @@ li:hover{
     cursor: pointer;
     text-decoration: underline;
 }
+.error-font{
+    color:red;
+    width: fit-content;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.342);
+    padding: 15px;
+  
+}
 
 @media only screen and (max-width: 600px){
     .banner{

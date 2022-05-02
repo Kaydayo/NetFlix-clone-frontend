@@ -2,12 +2,15 @@ import React, { useState} from 'react'
 import netflixImg from '../../Assets/netflixImg.png'
 import Banner from './Banner'
 import './Login.css'
+
 import Signup from './Signup'
+
 
 
 const Login = () => {
     const [signUp, setshowSignUp] = useState<boolean>(false);
-    const [startStep, setStartStep] = useState(false)
+
+    
 
     const handleSignUp = () => {
         setshowSignUp(true)
@@ -17,9 +20,7 @@ const Login = () => {
         setshowSignUp(false)
     }
 
-    const handleStepRegister = () =>{
-        
-    }
+    
   return (
     <div className="login">
        <div className="loginContainer">
@@ -33,7 +34,7 @@ const Login = () => {
         </button>
         </div>
        
-        {signUp ? <Signup handleSignIn={handleSignIn} />:<Banner handleSignUp={handleSignUp}/>}
+        {signUp ? <Signup handleSignIn={handleSignIn} />:<Banner />}
         {!signUp && <div className="footer">
             <p>Questions? Contact us.</p>
             <ul className="gird-foot">
