@@ -53,7 +53,7 @@ function Signup({handleSignIn}:ISignup) {
         </div>
         <div className="signup-hid">
         New to Netfix? 
-          <a href="/about" onClick={handleSignIn}>Sign up now.</a>
+          <a href="/" onClick={handleSignIn}>Sign up now.</a>
         </div>
     </div>
   )

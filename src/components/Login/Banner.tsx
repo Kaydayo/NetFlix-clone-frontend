@@ -35,7 +35,8 @@ const Banner = () => {
     }
     if (showError.next) {
       setIsClicked(true)
-      setTimeout(() => (navigate('/stepRegister')), 3000)
+      localStorage.setItem('email', email)
+      setTimeout(() => (navigate('/stepRegister/main')), 3000)
       
     }      
   }

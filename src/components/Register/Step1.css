@@ -1,0 +1,19 @@
+.step1{
+    margin: 5% auto;
+    width: fit-content;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+.tv-image img{
+    width: 15rem;
+    height: auto;
+    margin: 0 auto;
+}
+
+.step1 h1{
+    font-size: 1.5rem;
+}
+.mk-bld{
+    font-weight: 900;
+}

@@ -19,7 +19,6 @@ const Login = () => {
     const handleSignIn = () => {
         setshowSignUp(false)
     }
-
     
   return (
     <div className="login">
