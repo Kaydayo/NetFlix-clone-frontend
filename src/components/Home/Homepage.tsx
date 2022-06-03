@@ -4,9 +4,11 @@ import Hero from './Hero'
 import Row from './Row'
 import requests from '../../utils/request'
 
+import {motion} from 'framer-motion'
+
 const Homepage = () => {
   return (
-    <div className="homepage">
+    <motion.div className="homepage" initial={{opacity:0}} animate={{opacity:1}} exit={ {opacity:0}}>
         <Header/>
         <Hero/>
         <Row title='NETFLIX ORIGINALS' fetchUrl={requests.fetchNetflixOriginals} isLargeRow={true}/>
@@ -18,7 +20,7 @@ const Homepage = () => {
         <Row title='Romance Movies' fetchUrl={requests.fetchRomanceMovies} />
         <Row title='Documentaries' fetchUrl={requests.fetchDocumentaries} />
     
-    </div>
+    </motion.div>
   )
 }
 

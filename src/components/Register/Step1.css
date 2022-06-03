@@ -1,12 +1,14 @@
 .step1{
-    margin: 5% auto;
+    margin: 10% auto;
     width: fit-content;
     height: 20rem;
     display: flex;
     flex-direction: column;
+    gap: 3rem;
+    text-align: center;
 }
 .tv-image img{
-    width: 15rem;
+    width: 20rem;
     height: auto;
     margin: 0 auto;
 }
@@ -16,4 +18,36 @@
 }
 .mk-bld{
     font-weight: 900;
+}
+.under-step1{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.under-step1 h2{
+    font-weight: 900;
+    color: #333333;
+    width: 20rem;
+    font-size: 1.9rem;
+    margin: 0 auto;
+}
+
+.under-step1 p{
+    color: #333333;
+}
+.paragraphs p{
+    font-size: 1.1rem;
+    width: 20rem;
+    font-weight: 200;
+}
+
+button.next-btn{
+    height: 4rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 0;
+    font-size: 1.3rem;
+    text-justify: distribute;
 }

@@ -5,6 +5,8 @@ import './Login.css'
 
 import Signup from './Signup'
 
+import {motion} from 'framer-motion'
+
 
 
 const Login = () => {
@@ -21,7 +23,7 @@ const Login = () => {
     }
     
   return (
-    <div className="login">
+    <motion.div className="login" initial={{opacity:0}} animate={{opacity:1}} exit={ {opacity:0}}>
        <div className="loginContainer">
             
 
@@ -58,7 +60,7 @@ const Login = () => {
         <div className="set-fade2" />
        </div>
 
-    </div>
+    </motion.div>
   )
 }
 
