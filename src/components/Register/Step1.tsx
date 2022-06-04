@@ -1,8 +1,12 @@
 import React from 'react'
+import {useDispatch} from 'react-redux'
+import {addCount} from '../store/features/userSlice'
 
 import './Step1.css'
 
-const Step1 = ({count, handleCount}:{count:number, handleCount: ()=>void}) => {
+const Step1 = () => {
+
+  const dispatch = useDispatch()
   return (
     <div className="step1">
       <div className='tv-image'>
@@ -15,7 +19,7 @@ const Step1 = ({count, handleCount}:{count:number, handleCount: ()=>void}) => {
         <p>Netflix is personalized for you.</p>
           <p>Create a password to watch on any device at any time.</p>
         </div>
-        <button className='next-btn' onClick={handleCount}>Next</button>
+        <button className='next-btn' onClick={()=>dispatch(addCount())}>Next</button>
       </div>
       
    </div>
@@ -23,3 +27,5 @@ const Step1 = ({count, handleCount}:{count:number, handleCount: ()=>void}) => {
 }
 
 export default Step1
+
+

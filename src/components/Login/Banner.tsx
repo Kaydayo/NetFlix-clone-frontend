@@ -2,38 +2,35 @@ import {useState} from 'react';
 import {useNavigate} from 'react-router';
 import { Rings } from 'react-loader-spinner';
 import {useDispatch, useSelector} from 'react-redux';
-import {addEmail, addError} from '../store/features/userSlice';
+import {addEmail, addEmailError} from '../store/features/userSlice';
 
 
 const Banner = () => {
-  // const [email, setEmail] = useState<string>('');
-  // const [showError, setShowError] = useState<Error>({error: false, message: '', next: false});
+
   const [isClicked, setIsClicked] = useState<boolean>(false);
   
-  // const errorRef = useRef<HTMLParagraphElement>(null)
 
   
   const dispatch = useDispatch()
 
   const logEmail = useSelector((state: any) => state.user.email)
-  const userError = useSelector((state:any)=> state.user.error)
+  const logEmailError = useSelector((state: any) => state.user.emailError)
+  const getError = useSelector((state:any)=> state.user.error)
+  
  
   let navigate = useNavigate()
 
 
-  // const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-  //   setEmail(e.currentTarget.value)
-  //   let check = validEmail(e.currentTarget.value)
-  //    setShowError(check)
-  // }
+  
 
 
   const handleStepRegister = () => {
-    // let check = validEmail(email)
-    //  setShowError(check)
-    if (userError) {
-      dispatch(addError())
-    } else {
+   
+    dispatch(addEmailError())
+    if (logEmail === '' || logEmailError) {
+      dispatch(addEmailError())
+      return false
+    } else{
        setIsClicked(true)
       setTimeout(() => (navigate('/stepRegister/main')), 3000)
     }
@@ -51,13 +48,14 @@ const Banner = () => {
         
         <form className="signUpForm">
           <input type="email" name="value" value={logEmail} onChange={(e) => {
-            dispatch(addEmail(e.currentTarget.value))
-            dispatch(addError())
+            console.log(logEmailError)
+            dispatch(addEmail(e.target.value))
+            dispatch(addEmailError())
           }} placeholder="Email Address"/>
           <button type="button" className='getstarted' onClick={handleStepRegister}>{isClicked ? <Rings color="#fff" height={30} width={30}/>:`Get Started >`}</button>
         </form>
       </div>
-      <p style={{color:"#ffffff", marginLeft:"-10px"}}>{userError}</p>
+      <p style={{color:"#ffffff", marginLeft:"-10px"}}>{logEmailError}</p>
 </div>
   )
 }

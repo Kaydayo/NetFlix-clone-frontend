@@ -1,12 +1,21 @@
 .step2{
     margin-top: -5rem;
     height: 100%;
+    animation: motion ease-in 0.8s ;
+    transition: all 0.8s;
+}
+
+@keyframes motion {
+    0%{opacity: 80%;
+    transform: translateX(70px);}
+    100%{opacity: 100%;
+        transform: translateX(0px);}
 }
 
 .under-step2{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.1rem;
     line-height: 2.5rem;
 }
 

@@ -1,14 +1,24 @@
-import React from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import {addEmail, addError, addPassword} from '../store/features/userSlice';
+import {addCount, addEmail, addEmailError, addPassword, addPasswordError} from '../store/features/userSlice';
 import './Step2.css';
 
-const Step2 = ({count, handleCount}: {count: number, handleCount: () => void}) => {
+const Step2 = () => {
 
     const dispatch = useDispatch()
     const userEmail = useSelector((state: any) => state.user.email)
     const userPassword = useSelector((state: any) => state.user.password)
-    const userError = useSelector((state:any)=> state.user.error)
+    const userEmailError = useSelector((state: any) => state.user.emailError)
+  const userPasswordError = useSelector((state: any) => state.user.passwordError)
+  const userCount = useSelector((state:any)=> state.user.count)
+  console.log(userCount)
+  const handleNext = () => {
+    if (userPasswordError || userEmailError || userEmail === '' || userPassword === '') {
+      return
+    }
+    dispatch(addCount())
+    
+  }
+  
   return (
       <div className="step2">
           <div className="under-step2">
@@ -20,25 +30,27 @@ const Step2 = ({count, handleCount}: {count: number, handleCount: () => void}) =
                    <div className="form-label1">
                       <input type="text" className={userEmail ? '' : "make-red"} value={userEmail} onChange={(e) => {
                           dispatch(addEmail(e.target.value))
-                          dispatch(addError())
+                          dispatch(addEmailError())
                       }} />
-                      <label htmlFor="email" className={userEmail && "Active1" } >Email</label>
+                      <label htmlFor="email" className={userEmail && "Active1"} >Email</label>
+                      <p style={{color:"red", fontSize:"0.8rem"}}>{ userEmailError}</p>
         </div>
         <div className="form-label2">
-                      <input type="password" className={userPassword ? '' : "make-red"} name="password" onChange={(e) => {
+                      <input type="password" className={userPassword ? '' : "make-red"} value={userPassword} name="password" onChange={(e) => {
                           dispatch(addPassword(e.target.value))
-                          dispatch(addError())
+                          dispatch(addPasswordError())
                       }} />
-                      <label htmlFor="password" className={ userPassword && "Active2"} >Enter a password</label>
+                      <label htmlFor="password" className={userPassword && "Active2"} >Enter a password</label>
+                      <p style={{color:"red", fontSize:"0.8rem"}}>{ userPasswordError}</p>
                   </div>
                   <div className="no-email">
                     <input type="checkbox" name="not-email-me"  />
                       <label htmlFor="not-email-me">Please Mujeeb do not email me any special offers</label>
+                      
                       </div>
                   
               </div>
-              <p style={{color:"red"}}>{ userError}</p>
-        <button className='next-btn'>Next</button>
+        <button className='next-btn' onClick={handleNext}>Next</button>
       </div>
     </div>
   )
