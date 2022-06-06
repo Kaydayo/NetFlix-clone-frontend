@@ -6,6 +6,7 @@ import {motion} from 'framer-motion'
 import Step2 from './Step2';
 import Step3 from './Step3';
 import {useDispatch, useSelector} from 'react-redux';
+import Step4 from './Step4';
 
 function Main() {
   // const [count, setCount] = useState<number>(0)
@@ -21,7 +22,7 @@ function Main() {
     
   // }
 
-  const myArray = [<Step1 />, <Step2 />, <Step3/> ]
+  const myArray = [<Step1 />, <Step2 />, <Step3/>, <Step4/> ]
   return (
       <motion.div className="register-steps" initial={{opacity:0}} animate={{opacity:1}} exit={ {opacity:0}}>
         <div className="loginheader">
