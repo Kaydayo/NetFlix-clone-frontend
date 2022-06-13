@@ -1,5 +1,6 @@
 .register-steps{
     background-color: white;
+    width: 100% !important;
 }
 .register-steps .loginheader{
     background-color: white;
@@ -51,3 +52,4 @@
     text-decoration: underline;
     cursor: pointer;
 }
+

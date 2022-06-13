@@ -3,9 +3,12 @@ import {useNavigate} from 'react-router';
 import { Rings } from 'react-loader-spinner';
 import {useDispatch, useSelector} from 'react-redux';
 import {addEmail, addEmailError} from '../store/features/userSlice';
+import {db} from '../../firebase';
+import {collection, getDocs, query} from '@firebase/firestore';
+import {where} from 'firebase/firestore';
 
 
-const Banner = () => {
+const Banner = ({handleSignUp}:{handleSignUp: ()=> void}) => {
 
   const [isClicked, setIsClicked] = useState<boolean>(false);
   
@@ -24,14 +27,28 @@ const Banner = () => {
   
 
 
-  const handleStepRegister = () => {
-   
+  const handleStepRegister = async () => {
+    let val;
+    const getEmail = query(collection(db, 'users'), where('email', '==', logEmail));
+    const eshot = await getDocs(getEmail)
+    console.log(eshot)
+    eshot.forEach((doc) => {
+      val = doc.data()
+    });
+    console.log(val)
     dispatch(addEmailError())
+    if (val) {
+      setIsClicked(true)
+      setTimeout(() => handleSignUp() , 3000)
+      
+      return
+    }
     if (logEmail === '' || logEmailError) {
       dispatch(addEmailError())
       return false
     } else{
-       setIsClicked(true)
+      setIsClicked(true)
+      
       setTimeout(() => (navigate('/stepRegister/main')), 3000)
     }
   }

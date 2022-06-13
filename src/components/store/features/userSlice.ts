@@ -1,8 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {stat} from "fs";
 import validator from "validator";
 
-
+type subOptions = {
+    [key: string]: boolean
+}
 const userSlice = createSlice({
     name: "user",
     initialState: {
@@ -11,7 +12,13 @@ const userSlice = createSlice({
         emailError: '',
         passwordError: '',
         error: false,
-        count: 0
+        count: 0,
+        subscription: {
+            mobile: true,
+            basic: false,
+            standard: false,
+            premium: false
+        } as subOptions
     },
     reducers: {
         addEmail: (state, action) => {
@@ -56,11 +63,20 @@ const userSlice = createSlice({
             } else {
                 state.count += 1
             }
+        },
+        addSubscription: (state, action) => {
+            Object.keys(state.subscription).forEach((key: string) => {
+                if (key === action.payload) {
+                    state.subscription[key] = true
+                } else {
+                    state.subscription[key] = false
+                }
+            })
         }
 
     }
 })
 
-export const {addEmail, addPassword, addEmailError, addPasswordError, addCount} = userSlice.actions
+export const {addEmail, addPassword, addEmailError, addPasswordError, addCount, addSubscription} = userSlice.actions
 
 export default userSlice

@@ -35,7 +35,7 @@ const Login = () => {
         </button>
         </div>
        
-        {signUp ? <Signup handleSignIn={handleSignIn} />:<Banner />}
+        {signUp ? <Signup handleSignIn={handleSignIn} />:<Banner handleSignUp={handleSignUp} />}
         {!signUp && <div className="footer">
             <p>Questions? Contact us.</p>
             <ul className="gird-foot">

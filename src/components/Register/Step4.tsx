@@ -1,15 +1,26 @@
-import React from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {AiOutlineMobile} from 'react-icons/ai'
 import {IoMdCheckmark} from 'react-icons/io'
 import {BsTabletLandscape} from 'react-icons/bs'
 import {MdComputer} from 'react-icons/md'
 import {IoTvOutline} from 'react-icons/io5'
-import {useDispatch} from 'react-redux'
-import {addCount} from '../store/features/userSlice'
+import {useDispatch, useSelector} from 'react-redux'
+import {addCount, addSubscription} from '../store/features/userSlice'
 import './Step4.css'
+
 
 const Step4 = () => {
     const dispatch = useDispatch()
+    
+    const subs = useSelector((state: any) => state.user.subscription)
+    
+    const checkMovies = () => {
+        const isEmpty = Object.values(subs).every(x => x === false);
+        if (!isEmpty) {
+            dispatch(addCount())
+        }
+    }   
+   
   return (
       <div className="step4">
           <div className="top-left">
@@ -23,55 +34,58 @@ const Step4 = () => {
           </div>
           <div className="table-sub">
               <table>
-                  <tr>
-                      <td></td>
-                      <td>
-                          <div className="sub4">
+                  <thead>
+                  <tr className="makeTran">
+                      <th></th>
+                      <th>
+                          <div className={`sub4 ${subs.mobile && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('mobile'))}>
                         <p>Mobile</p>
                         </div>
-                      </td>
-                      <td>
-                        <div className="sub4">
+                      </th>
+                      <th>
+                        <div className={`sub4 ${subs.basic && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('basic'))}>
                   <p>Basic</p>
               </div>
-                      </td>
-                      <td>
-                         <div className="sub4">
+                      </th>
+                      <th>
+                         <div className={`sub4 ${subs.standard && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('standard'))}>
                   <p>Standard</p>
               </div>
-                      </td>
-                      <td>
+                      </th>
+                      <th>
 
-                          <div className="sub4">
+                          <div className={`sub4 ${subs.premium && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('premium'))}>
                   <p>Premium</p>
               </div>
-                      </td>
+                      </th>
                   </tr>
-                  <tr>
+                  </thead>
+                  <tbody>
+                      <tr>
                       <td>Monthly Price</td>
-                      <td>1,200</td>
-                      <td>2,900</td>
-                      <td>3,600</td>
-                      <td>4,400</td>
+                      <td className={subs.mobile && 'actSubtxt'}>$1,200</td>
+                      <td className={subs.basic && 'actSubtxt'}>$2,900</td>
+                      <td className={subs.standard && 'actSubtxt'}>$3,600</td>
+                      <td className={subs.premium && 'actSubtxt'}>$4,400</td>
                   </tr>
                   <tr>
                       <td>Video quality</td>
-                      <td>Good</td>
-                      <td>Good</td>
-                      <td>Better</td>
-                      <td>Best</td>
+                      <td className={subs.mobile && 'actSubtxt'}>Good</td>
+                      <td className={subs.basic && 'actSubtxt'}>Good</td>
+                      <td className={subs.standard && 'actSubtxt'}>Better</td>
+                      <td className={subs.premium && 'actSubtxt'}>Best</td>
                   </tr>
                   <tr>
                       <td>Resolution</td>
-                      <td>480px</td>
-                      <td>480px</td>
-                      <td>1080px</td>
-                      <td>4K + HDR</td>
+                      <td className={subs.mobile && 'actSubtxt'}>480px</td>
+                      <td className={subs.basic && 'actSubtxt'}>480px</td>
+                      <td className={subs.standard && 'actSubtxt'}>1080px</td>
+                      <td className={subs.premium && 'actSubtxt'}>4K + HDR</td>
                   </tr>
                   <tr>
                       <td>Devices you can use to watch</td>
                       <td>
-                          <div className='devices'>
+                          <div className={`devices ${subs.mobile && 'actSubtxt'}`}>
                               <div className="phone">
                                    <AiOutlineMobile />
                                     <p>phone</p>
@@ -83,7 +97,7 @@ const Step4 = () => {
                           </div>
                       </td>
                       <td>
-                           <div className='devices'>
+                           <div className={`devices ${subs.basic && 'actSubtxt'}`}>
                               <div className="phone">
                                    <AiOutlineMobile />
                                     <p>phone</p>
@@ -96,14 +110,14 @@ const Step4 = () => {
                                   <MdComputer />
                                   <p>computer</p>
                               </div>
-                              <div className="television">
+                              <div className="TV">
                                   <IoTvOutline />
-                                  <p>television</p>
+                                  <p>TV</p>
                               </div>
                           </div>
                       </td>
                       <td>
-                           <div className='devices'>
+                           <div className={`devices ${subs.standard && 'actSubtxt'}`}>
                               <div className="phone">
                                    <AiOutlineMobile />
                                     <p>phone</p>
@@ -116,14 +130,14 @@ const Step4 = () => {
                                   <MdComputer />
                                   <p>computer</p>
                               </div>
-                              <div className="television">
+                              <div className="TV">
                                   <IoTvOutline />
-                                  <p>television</p>
+                                  <p>TV</p>
                               </div>
                           </div>
                       </td>
                       <td>
-                           <div className='devices'>
+                           <div className={`devices ${subs.premium && 'actSubtxt'}`}>
                               <div className="phone">
                                    <AiOutlineMobile />
                                     <p>phone</p>
@@ -136,20 +150,22 @@ const Step4 = () => {
                                   <MdComputer />
                                   <p>computer</p>
                               </div>
-                              <div className="television">
+                              <div className="TV">
                                   <IoTvOutline />
-                                 <p>television</p>
+                                 <p>TV</p>
                               </div>
                           </div>
                       </td>
                   </tr>
+                  </tbody>
+
               </table>
 
           </div>
           <div className="p1">
               <p>HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to your internet service and device capabilities.
               Not all content is available in all resolutions.
-              See our Terms of Use for more details.
+              See our <span style={{color:'blue'}}>Terms of Use</span> for more details.
           </p>
           </div>
           <div className="p1">
@@ -158,7 +174,7 @@ const Step4 = () => {
               2 with Standard, and 1 with Basic and Mobile.
           </p>
           </div>
-           <button className='next-btn' onClick={()=> dispatch(addCount())}>Next</button>
+           <button className='next-btn' onClick={checkMovies}>Next</button>
     </div>
   )
 }

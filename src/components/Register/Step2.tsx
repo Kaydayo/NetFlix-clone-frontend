@@ -1,4 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux';
+import {registerWithEmailAndPassword} from '../../firebase';
 import {addCount, addEmail, addEmailError, addPassword, addPasswordError} from '../store/features/userSlice';
 import './Step2.css';
 
@@ -15,6 +16,7 @@ const Step2 = () => {
     if (userPasswordError || userEmailError || userEmail === '' || userPassword === '') {
       return
     }
+    registerWithEmailAndPassword(userEmail, userPassword)
     dispatch(addCount())
     
   }

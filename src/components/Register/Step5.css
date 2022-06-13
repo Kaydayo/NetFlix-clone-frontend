@@ -1,0 +1,75 @@
+.step5{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: -3.5rem;
+    height: 100%;
+}
+
+.lock{
+    border: 2px solid red;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+    color: red;
+    font-size: 2rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.step5 h2{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #464646;
+}
+
+.step5 .set-p{
+    width: 12rem;
+    color: #464646;
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.step5 h4{
+    color: #464646;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.lil-box{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    align-content: center;
+    margin-top: 1rem;
+    position: relative;
+    border: 2px solid #cacaca;
+    padding: 0.6rem;
+    border-radius: 10px;
+
+}
+.log-cards{
+    display: flex;
+    width: 30rem;
+    align-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logoIcon{
+    width: 3rem;
+    height: auto;
+   
+}
+.VERVE{
+    width: auto;
+    height: 2rem;
+}
+.sec-server{
+    position: absolute;
+    display: flex;
+    top: -1;
+}

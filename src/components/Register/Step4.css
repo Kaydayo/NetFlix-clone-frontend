@@ -39,10 +39,33 @@
     color: white;
     width: 7rem;
     height: 7rem;
-    /* align-content: center; */
+    align-content: center;
     position: relative;
+    text-align: center;
+    gap: 3rem;
 }
 
+.actSub{
+    background-color:rgb(255, 2, 2);
+    box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0.192);
+    
+}
+.actSub:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-bottom: 1px solid rgb(255, 2, 2);
+  border-left: 1px solid rgb(255, 2, 2);
+  bottom: -11px;
+  right: 45px;
+  background-color: rgb(255, 2, 2);
+  transform: rotate(45deg);
+}
+
+.actSubtxt{
+    color: red
+}
 .sub4>p{
     margin: 0 auto;
     /* text-align: center; */
@@ -66,17 +89,31 @@
     width: 100%;
     font-size: 1rem;
     color: #7c7c7c;
-    row-gap: 2rem;
-    border-spacing: 0 3rem;
- 
-    
-    
+    row-gap: 1rem;
+    border-spacing: 0 3rem; 
+    table-layout:auto;  
+}
+
+
+
+
+.table-sub table thead{
+    position: sticky;
+}
+
+.table-sub table th{
+    position: sticky;
 }
 
 .table-sub table td{
     border-bottom: 1px solid #7c7c7c;
     padding-bottom: 0.6rem;
     vertical-align: baseline;
+    text-align: center;  
+}
+
+.table-sub table td:first-child{
+    text-align: left;
 }
 
 .table-sub table tr:last-child td{
@@ -84,6 +121,52 @@
 }
 
 .table-sub table tr:first-child td{
-    border-bottom: 0;
+    border-top: 0;
 }
 
+.devices{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sub4:hover{
+    cursor: pointer;
+}
+
+.makeTran{
+    position: sticky;
+    position:-webkit-sticky;
+    background-color: white;
+    top: 0;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+
+@media only screen and (max-width: 600px){
+    .step4{
+        transform: scale(0.5);
+        margin-top: -20rem;
+        margin-left: 0;
+        display: flex;
+        margin-bottom: 0;
+        flex-direction: column;
+        gap: 0;
+        height: fit-content;
+    }
+    .makeTran{
+    position: relative;
+    background-color: white;
+}
+.table-sub table{
+    font-size: 1rem;
+    color: #7c7c7c;
+    gap: 4rem; 
+    table-layout: fixed;
+}
+.p1 p{
+    width:fit-content;
+    color: #ACACAC;
+    font-size: 0.8rem;
+}
+}
