@@ -6,6 +6,16 @@
     flex-direction: column;
     gap: 3rem;
     text-align: center;
+    animation: motion ease-in 0.8s ;
+    transition: all 0.8s;
+}
+
+
+@keyframes motion {
+    0%{opacity: 80%;
+    transform: translateX(70px);}
+    100%{opacity: 100%;
+        transform: translateX(0px);}
 }
 .tv-image img{
     width: 20rem;

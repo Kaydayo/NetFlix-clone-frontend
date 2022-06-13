@@ -58,11 +58,12 @@ const userSlice = createSlice({
             }
         },
         addCount: (state) => {
-            if (state.count > 3) {
-                state.count = 0
-            } else {
-                state.count += 1
-            }
+            // if (state.count > 3) {
+            //     state.count = 0
+            // } else {
+            //     state.count += 1
+            // }
+            state.count += 1
         },
         addSubscription: (state, action) => {
             Object.keys(state.subscription).forEach((key: string) => {

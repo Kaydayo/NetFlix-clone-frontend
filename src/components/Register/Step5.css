@@ -4,9 +4,18 @@
     align-content: center;
     align-items: center;
     gap: 0.5rem;
-    margin-top: -3.5rem;
     height: 100%;
+    animation: motion ease-in 0.8s ;
+    transition: all 0.8s;
 }
+
+@keyframes motion {
+    0%{opacity: 80%;
+    transform: translateX(70px);}
+    100%{opacity: 100%;
+        transform: translateX(0px);}
+}
+
 
 .lock{
     border: 2px solid red;
@@ -42,16 +51,27 @@
 }
 .lil-box{
     display: flex;
-    width: fit-content;
+    width: 25rem;
     align-items: center;
     align-content: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
     position: relative;
     border: 2px solid #cacaca;
     padding: 0.6rem;
-    border-radius: 10px;
+    border-radius: 5px;
+    color: #616161;
 
 }
+
+.lil-box:hover{
+    cursor: pointer;
+}
+
+.log-images{
+    display: flex;
+    gap: 0.5rem;
+}
+
 .log-cards{
     display: flex;
     width: 30rem;
@@ -71,5 +91,17 @@
 .sec-server{
     position: absolute;
     display: flex;
-    top: -1;
+    top: -1.5rem;
+    right: 0;
 }
+.make-blind{
+    opacity: 20%;
+}
+.sep-ring{
+  margin-top: -18%;
+
+}
+.sep-ring-tr{
+    display: block;
+}
+

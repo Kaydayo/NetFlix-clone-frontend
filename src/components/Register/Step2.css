@@ -5,6 +5,7 @@
     transition: all 0.8s;
 }
 
+
 @keyframes motion {
     0%{opacity: 80%;
     transform: translateX(70px);}
