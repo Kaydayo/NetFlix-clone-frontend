@@ -4,17 +4,58 @@ import {GrNext} from 'react-icons/gr'
 import {IoIosLock} from 'react-icons/io'
 import './Step5.css'
 import {Rings} from 'react-loader-spinner'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {addCount} from '../store/features/userSlice'
+import {loadStripe} from '@stripe/stripe-js'
+
+
 
 const Step5 = () => {
     const [payClick, setPayClick] = useState<boolean>(false)
+    const [stripeError, setStripeError] = useState(null);
     const dispatch = useDispatch()
+    const cp = useSelector((state:any)=> state.user.currentPrice)
+    
+    let stripePromise:any
+    console.log(cp)
+    const getStripe = () => {
+        if (!stripePromise) {
+            stripePromise = loadStripe(process!.env!.REACT_APP_STRIPE_KEY!)
+        }
+
+        return stripePromise
+    }
+
+
+        const item = {
+            price: cp,
+            quantity: 1
+        }
+        const checkoutOptions = {
+            lineItems: [item],
+            mode: 'payment',
+            successUrl: `${window.location.origin}/success`,
+            cancelUrl: `${window.location.origin}/cancel`
+        }
+
+    
+
+    const redirectToCheckout = async () => {
+            setPayClick(true)
+           console.log(cp, 'redirect to checkout error')
+            const stripe = await getStripe()
+            const {error} = await stripe.redirectToCheckout(checkoutOptions)
+        console.log("Stripe Checkout error", error.message)
+        
+        if(error)setStripeError(error.message)
+        }
+    
     const handlePayClick = () => {
         setPayClick(true)
         setTimeout(() => dispatch(addCount()), 3000)
     }
 
+     if (stripeError) alert(stripeError);
   return (
       <div className="step5">
           <div className="lock">
@@ -25,7 +66,7 @@ const Step5 = () => {
           <p className='set-p'>Your membership starts as soon as you set up payment.</p>
           <h4>No commitments.</h4>
           <h4>Cancel online anytime.</h4>
-          <div className={`lil-box ${payClick && "make-blind"}`} onClick={handlePayClick}>
+          <div className={`lil-box ${payClick && "make-blind"}`} onClick={redirectToCheckout}>
               <div className="log-cards">
                   <p>Credit or Debit Card</p>
                   <div className="log-images">

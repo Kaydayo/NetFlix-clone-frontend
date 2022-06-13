@@ -41,7 +41,7 @@ function Main() {
         {/* <p>STEP <span className="cnt-bold">{ count }</span> OF 3 </p> */}
 
         {myArray[userCount]}
-        {/* {myArray[4]} */}
+        {/* {myArray[3]} */}
         
       </div>
       <footer className='steps-footer'>

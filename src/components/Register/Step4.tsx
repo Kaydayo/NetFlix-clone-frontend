@@ -5,7 +5,7 @@ import {BsTabletLandscape} from 'react-icons/bs'
 import {MdComputer} from 'react-icons/md'
 import {IoTvOutline} from 'react-icons/io5'
 import {useDispatch, useSelector} from 'react-redux'
-import {addCount, addSubscription} from '../store/features/userSlice'
+import {addCount, addSubscription, getSubPrice} from '../store/features/userSlice'
 import './Step4.css'
 
 
@@ -20,7 +20,6 @@ const Step4 = () => {
             dispatch(addCount())
         }
     }   
-   
   return (
       <div className="step4">
           <div className="top-left">
@@ -38,23 +37,39 @@ const Step4 = () => {
                   <tr className="makeTran">
                       <th></th>
                       <th>
-                          <div className={`sub4 ${subs.mobile && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('mobile'))}>
+                              <div className={`sub4 ${subs.mobile && 'actSub'}`} onClick={() =>
+                              {
+                                  dispatch(addSubscription('mobile'))
+                                  dispatch(getSubPrice())
+                              }}>
                         <p>Mobile</p>
                         </div>
                       </th>
                       <th>
-                        <div className={`sub4 ${subs.basic && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('basic'))}>
+                              <div className={`sub4 ${subs.basic && 'actSub'}`} onClick={() => {
+                                  dispatch(addSubscription('basic'))
+                                  dispatch(getSubPrice())
+                              }
+                              }>
                   <p>Basic</p>
               </div>
                       </th>
                       <th>
-                         <div className={`sub4 ${subs.standard && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('standard'))}>
+                              <div className={`sub4 ${subs.standard && 'actSub'}`} onClick={() => {
+                                  dispatch(addSubscription('standard'))
+                                  dispatch(getSubPrice())
+                              }
+                              }>
                   <p>Standard</p>
               </div>
                       </th>
                       <th>
 
-                          <div className={`sub4 ${subs.premium && 'actSub'}`} onClick={(e)=>dispatch(addSubscription('premium'))}>
+                              <div className={`sub4 ${subs.premium && 'actSub'}`} onClick={() => {
+                                  dispatch(addSubscription('premium'))
+                                  dispatch(getSubPrice())
+                              }
+                              }>
                   <p>Premium</p>
               </div>
                       </th>

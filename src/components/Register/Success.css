@@ -1,0 +1,73 @@
+.register-steps{
+    background-color: white;
+    width: 100% !important;
+}
+.register-steps .loginheader{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-bottom: 12px;
+    width: 100%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.521);
+}
+.signout{
+    background: none;
+    color: rgb(44, 44, 44);
+    font-size: 1rem;
+    font-weight: 800;
+    margin-right: 1rem;
+}
+
+.loginheader{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-top: 2rem;
+    align-items: center;
+    z-index: 10;
+ 
+}
+
+.loginheader img{
+    height: auto;
+    width: 10rem;
+    filter:saturate(10);
+   
+}
+.step-by-step{
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 5rem;
+    display: flex;
+    font-size: 0.9rem;
+    flex-direction: column;
+    
+}
+.cnt-bold{
+    font-weight: 900;
+}
+
+.steps-footer{
+    background-color: #F3F3F3;
+    color: #868686;
+    margin-top: 10rem;
+    padding: 2rem;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.steps-footer ul{
+    margin-top: 1.4rem;
+}
+
+.steps-footer p{
+    font-size: 1rem;
+}
+
+.steps-footer p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+

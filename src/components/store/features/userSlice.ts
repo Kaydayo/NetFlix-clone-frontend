@@ -1,8 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
 import validator from "validator";
 
+
+
 type subOptions = {
     [key: string]: boolean
+}
+
+type priceOptions = {
+    [key: string]: string
 }
 const userSlice = createSlice({
     name: "user",
@@ -18,7 +24,14 @@ const userSlice = createSlice({
             basic: false,
             standard: false,
             premium: false
-        } as subOptions
+        } as subOptions,
+        subscriptionPrices: {
+            mobile: process!.env!.REACT_APP_MOBILE!,
+            basic: process!.env!.REACT_APP_BASIC!,
+            standard: process!.env!.REACT_APP_STANDARD!,
+            premium: process!.env!.REACT_APP_PREMIUM!
+        } as priceOptions,
+        currentPrice: ''
     },
     reducers: {
         addEmail: (state, action) => {
@@ -73,11 +86,29 @@ const userSlice = createSlice({
                     state.subscription[key] = false
                 }
             })
+        },
+        getSubPrice: (state) => {
+            for (const [key, value] of Object.entries(state.subscription)) {
+
+                if (value === true) {
+                    
+                    state.currentPrice = state.subscriptionPrices[key]
+
+                }
+            }
         }
 
     }
 })
 
-export const {addEmail, addPassword, addEmailError, addPasswordError, addCount, addSubscription} = userSlice.actions
+export const {
+    addEmail,
+    addPassword,
+    addEmailError,
+    addPasswordError,
+    addCount,
+    addSubscription,
+    getSubPrice
+} = userSlice.actions
 
 export default userSlice
