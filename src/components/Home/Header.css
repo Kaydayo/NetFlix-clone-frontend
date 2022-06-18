@@ -32,10 +32,19 @@
     height: auto;
     cursor: pointer;
 }
+.avatar{
+    display: flex;
+    font-size: 1.5rem;
+    color: white;
+    align-items: center;
+    gap: 1rem;
+    
+}
 .avatar img{
     width:2rem;
     height: auto;
     margin-right: 3rem;
+    cursor: pointer;
     
 }
 ul{
@@ -43,11 +52,41 @@ ul{
 }
 li{
     display: inline;
-    margin-right: 60px;
+    margin-right: 30px;
+    font-size: 1rem;
 }
 .list-na{
     color: rgb(255, 255, 255);
 }
 .red-style{
     color: rgb(255, 255, 255);
+}
+
+.dropbox{
+    position: absolute;
+    color: white;
+    right: 2rem;
+    width: 10rem;
+    height: fit-content;
+    background-color: rgba(65, 65, 65, 0.356);
+    top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.drop-container{
+    background-color: rgb(141, 141, 141);
+    top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    border-radius: 10px;
+    padding: 1rem;
+    width: max-content;
+}
+.drop-container p{
+    font-size: 0.7rem;
 }

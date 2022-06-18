@@ -9,11 +9,13 @@
     overflow-x: scroll;
     padding: 20px;
     gap: 0.1rem;
+    cursor: pointer;
 }
 
 .row_poster{
     height: 180px;
     width: auto;
+    border-radius: 10px;
 }
 
 .row_posterLarge{

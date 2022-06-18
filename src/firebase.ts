@@ -61,6 +61,7 @@ const registerWithEmailAndPassword = async (email: string, password:string) => {
             authProvider: "local",
             email,
         });
+        console.log('successful')
     } catch (err:any) {
         console.error(err);
         alert(err.message);
@@ -71,10 +72,18 @@ const logout = () => {
     signOut(auth);
 };
 
+const getUsers = async (db:any) => {
+    const usersCol = collection(db, 'users');
+    const usersSnapshot = await getDocs(usersCol);
+    const usersList = usersSnapshot.docs.map(doc => doc.data());
+    return usersList;
+}
+
 export {
     auth,
     db,
     logInWithEmailAndPassword,
     registerWithEmailAndPassword,
-    logout
+    logout,
+    getUsers
 }

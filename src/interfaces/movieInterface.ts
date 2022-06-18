@@ -1,6 +1,6 @@
 export interface IMovie {
     name: string;
-    adult:boolean;
+    adult: boolean;
     backdrop_path: string;
     genre_ids: [number];
     id: number;
@@ -13,7 +13,7 @@ export interface IMovie {
     title: string;
     video: boolean;
     vote_average: number;
-    vote_count: number;   
+    vote_count: number;
 }
 
 export interface IRow {
@@ -23,10 +23,11 @@ export interface IRow {
 
 }
 
-export interface MovieProp{
+export interface MovieProp {
     isLargeRow?: boolean;
     movie: IMovie;
     base_url: string;
+    handleTrailer: (movie:any) => void;
 }
 
 // export interface IBanner{
@@ -39,8 +40,8 @@ export type Error = {
     next: boolean
 }
 
-export interface ISignup{
-    handleSignIn:()=>void;
+export interface ISignup {
+    handleSignIn: () => void;
 }
 
 export type MyData = {

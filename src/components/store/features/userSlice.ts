@@ -1,5 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import validator from "validator";
+// import {updateCount, updatePlan} from "../../../firebase";
+
 
 
 
@@ -31,7 +33,8 @@ const userSlice = createSlice({
             standard: process!.env!.REACT_APP_STANDARD!,
             premium: process!.env!.REACT_APP_PREMIUM!
         } as priceOptions,
-        currentPrice: ''
+        currentPrice: '',
+        signUp: false
     },
     reducers: {
         addEmail: (state, action) => {
@@ -71,17 +74,18 @@ const userSlice = createSlice({
             }
         },
         addCount: (state) => {
-            // if (state.count > 3) {
-            //     state.count = 0
-            // } else {
-            //     state.count += 1
-            // }
-            state.count += 1
+            if (state.count >= 5) {
+                state.count = 0
+            } else {
+                state.count += 1
+            }
+            
         },
         addSubscription: (state, action) => {
             Object.keys(state.subscription).forEach((key: string) => {
                 if (key === action.payload) {
                     state.subscription[key] = true
+                    
                 } else {
                     state.subscription[key] = false
                 }
@@ -96,6 +100,9 @@ const userSlice = createSlice({
 
                 }
             }
+        },
+        changeSignUp: (state, action) => {
+            state.signUp = action.payload
         }
 
     }
@@ -108,7 +115,8 @@ export const {
     addPasswordError,
     addCount,
     addSubscription,
-    getSubPrice
+    getSubPrice,
+    changeSignUp
 } = userSlice.actions
 
 export default userSlice

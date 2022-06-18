@@ -6,20 +6,24 @@ import './Login.css'
 import Signup from './Signup'
 
 import {motion} from 'framer-motion'
+import {useDispatch, useSelector} from 'react-redux'
+import {changeSignUp} from '../store/features/userSlice'
 
 
 
 const Login = () => {
-    const [signUp, setshowSignUp] = useState<boolean>(false);
+   
+    const dispatch = useDispatch()
+    const signUp = useSelector((state:any)=> state.user.signUp)
 
     
 
     const handleSignUp = () => {
-        setshowSignUp(true)
+        dispatch(changeSignUp(true))
     }
 
     const handleSignIn = () => {
-        setshowSignUp(false)
+        dispatch(changeSignUp(false))
     }
     
   return (

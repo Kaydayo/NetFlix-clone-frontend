@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './Hero.css';
 import axios from '../../utils/axios';
 import requests from '../../utils/request';
+import {BsFillPlayFill} from 'react-icons/bs'
+import {HiInformationCircle} from 'react-icons/hi'
 
 const Hero = () => {
     const [movie, setMovie] = useState<any>([])
@@ -38,8 +40,8 @@ const Hero = () => {
             </h1>
             </div>
             <div className="hero_buttons ">
-                <button className="hero_button">Play</button>
-                <button className="hero_button">My List</button>
+                <button className="hero_button"><span><BsFillPlayFill/></span>Play</button>
+                <button className="hero_button">My List <span><HiInformationCircle/></span></button>
             </div>
            
             <h1 className="text_description">

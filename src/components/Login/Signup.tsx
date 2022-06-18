@@ -1,19 +1,22 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Signup.css'
 import { ISignup } from '../../interfaces/movieInterface';
 import {AiFillCloseCircle} from 'react-icons/ai';
 import { MyData } from '../../interfaces/movieInterface';
 import {useDispatch, useSelector} from 'react-redux';
 import {addEmail, addEmailError, addPassword, addPasswordError} from '../store/features/userSlice';
-import {logInWithEmailAndPassword} from "../../firebase";
+import {auth, logInWithEmailAndPassword} from "../../firebase";
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {useNavigate} from 'react-router';
 
 
 
 
 function Signup({handleSignIn}:ISignup) {
   const [isActive, setIsActive] = useState({email:false, password:false});
-  const [value, setValue] = useState<MyData>({email: '', password: ''})
+   const [user, loading, error] = useAuthState(auth)
   
+  const navigate = useNavigate()
     const dispatch = useDispatch()
    const userEmail = useSelector((state: any) => state.user.email)
   const userPassword = useSelector((state: any) => state.user.password)
@@ -21,22 +24,14 @@ function Signup({handleSignIn}:ISignup) {
   const userPasswordError = useSelector((state: any) => state.user.passwordError)
   
 
-  const handleTextChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const name = e.currentTarget.name
-    const newvalue = e.currentTarget.value
-    setValue({...value,[name]:newvalue})
-    if(newvalue !== '' ){
-    setIsActive({...isActive, [name]:true})
-  }else{
-    setIsActive({...isActive,[name]:false})
-  }
- 
-    
-  }
+  useEffect(() => {
+    if(loading) return
+    if (user) return navigate("/home");
+  }, [user, loading]);
+
 
  
   
-  console.log(value)
   return (
     <div className="signup-form">
          <div className="close-btn" onClick={handleSignIn}>
@@ -81,3 +76,5 @@ function Signup({handleSignIn}:ISignup) {
 }
 
 export default Signup
+
+

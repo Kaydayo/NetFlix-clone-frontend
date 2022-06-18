@@ -9,6 +9,7 @@ import {addCount, addSubscription, getSubPrice} from '../store/features/userSlic
 import './Step4.css'
 
 
+
 const Step4 = () => {
     const dispatch = useDispatch()
     
@@ -16,6 +17,7 @@ const Step4 = () => {
     
     const checkMovies = () => {
         const isEmpty = Object.values(subs).every(x => x === false);
+        
         if (!isEmpty) {
             dispatch(addCount())
         }

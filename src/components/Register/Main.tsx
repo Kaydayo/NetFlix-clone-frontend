@@ -8,12 +8,16 @@ import Step3 from './Step3';
 import {useDispatch, useSelector} from 'react-redux';
 import Step4 from './Step4';
 import Step5 from './Step5';
-import {logout} from '../../firebase';
+import {auth, logout} from '../../firebase';
 import {useNavigate} from 'react-router';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {changeSignUp} from '../store/features/userSlice';
 
 
 function Main() {
   // const [count, setCount] = useState<number>(0)
+  const [user, loading, error] = useAuthState(auth)
+  const navigate = useNavigate()
 
  
   const dispatch = useDispatch()
@@ -33,8 +37,11 @@ function Main() {
       <motion.div className="register-steps" initial={{opacity:0}} animate={{opacity:1}} exit={ {opacity:0}}>
         <div className="loginheader">
         <img src={netflixImg} alt="logo-nt" />
-        <button className="signout" onClick={()=> logout()}>
-            Sign Out
+        <button className="signout" onClick={user ? () => logout() : () => {
+          dispatch(changeSignUp(true))
+          navigate("/")
+        }}>
+           {user? "Sign Out":"Sign in"}
         </button>
       </div>
       <div className="step-by-step">

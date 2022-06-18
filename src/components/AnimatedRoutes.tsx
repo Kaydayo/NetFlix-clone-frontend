@@ -6,6 +6,7 @@ import Login from './Login/Login'
 import Main from './Register/Main'
 import {AnimatePresence} from 'framer-motion'
 import Success from './Register/Success'
+import Cancel from './Register/Cancel'
 
  
 const AnimatedRoutes = () => {
@@ -16,7 +17,8 @@ const AnimatedRoutes = () => {
         <Route path="/home" element={<Homepage />} />
         <Route path="/" element={<Login />} />
           <Route path="/stepRegister/main" element={<Main />} />
-          <Route path="/success" element={<Success/>}/>
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancel/>}/>
             </Routes>
             </AnimatePresence> 
    )

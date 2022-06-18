@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import {IoCheckmarkDone} from 'react-icons/io5'
-import {Rings} from 'react-loader-spinner'
-import {useNavigate} from 'react-router'
 import netflixImg from '../../Assets/netflixImg.png'
 import {logout} from '../../firebase'
 import './Success.css'
+import {FcCancel} from 'react-icons/fc'
+import {useNavigate} from 'react-router'
+import {Rings} from 'react-loader-spinner'
 
-const Success = () => {
-    const [isClick, setIsClicked] = useState<boolean>(false)
+const Cancel = () => {
+   const [isClick, setIsClicked] = useState<boolean>(false)
     const navigate = useNavigate()
   return (
       <div className="register-steps">
@@ -19,24 +19,25 @@ const Success = () => {
           </div>
           <div className="success-main">
               <div className="pop">
-                  <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/undefined/external-popcorn-cinema-konkapp-flat-konkapp-2.png" />
+                  <img src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/undefined/external-payment-supermarket-photo3ideastudio-flat-photo3ideastudio.png"/>
                   <div className="chck-mak">
-                      <IoCheckmarkDone/>
+                      <FcCancel/>
                   </div>
               </div>
-              <h1>Successful!</h1>
-              <p>Subscription was successful</p>
-              <p>start streaming endlessly</p>
+              <h1>Cancelled!</h1>
+              <p>Don't give up movie ninja</p>
+              <p>we desperately want you on our platform</p>
               
-              <button className={`nxt-btn start-watch-btn ${isClick && "make-blind"}`} onClick={() => {
+        <button className={`nxt-btn start-watch-btn ${isClick && "make-blind"}`} onClick={() => {
                   setIsClicked(true)
-                  setTimeout(() => (navigate('/home')), 3000)
+                  setTimeout(() => (navigate('/')), 3000)
               }}
-                  disabled={isClick}>Start Membership</button>
+          disabled={isClick}>Try Again</button>
         {isClick && <div className="place-fore">
                   <Rings color="red" height={70} width={70} />
           </div>}
-          </div>
+      </div>
+      
           <footer className='steps-footer'>
         <p>Questions? Contact us.</p>
         <ul className='the-list'>
@@ -52,4 +53,4 @@ const Success = () => {
   )
 }
 
-export default Success
+export default Cancel
