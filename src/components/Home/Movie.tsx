@@ -1,6 +1,5 @@
 import React , {useState} from 'react'
 import { MovieProp } from '../../interfaces/movieInterface'
-import Modal from './Modal';
 import './Movie.css'
 
 

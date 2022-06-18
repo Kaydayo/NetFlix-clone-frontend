@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './Signup.css'
 import { ISignup } from '../../interfaces/movieInterface';
 import {AiFillCloseCircle} from 'react-icons/ai';
-import { MyData } from '../../interfaces/movieInterface';
 import {useDispatch, useSelector} from 'react-redux';
 import {addEmail, addEmailError, addPassword, addPasswordError} from '../store/features/userSlice';
 import {auth, logInWithEmailAndPassword} from "../../firebase";
@@ -13,8 +12,7 @@ import {useNavigate} from 'react-router';
 
 
 function Signup({handleSignIn}:ISignup) {
-  const [isActive, setIsActive] = useState({email:false, password:false});
-   const [user, loading, error] = useAuthState(auth)
+   const [user, loading] = useAuthState(auth)
   
   const navigate = useNavigate()
     const dispatch = useDispatch()

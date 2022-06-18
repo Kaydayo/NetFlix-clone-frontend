@@ -19,7 +19,7 @@ const Cancel = () => {
           </div>
           <div className="success-main">
               <div className="pop">
-                  <img src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/undefined/external-payment-supermarket-photo3ideastudio-flat-photo3ideastudio.png"/>
+                  <img src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/undefined/external-payment-supermarket-photo3ideastudio-flat-photo3ideastudio.png" alt='cancel-img'/>
                   <div className="chck-mak">
                       <FcCancel/>
                   </div>

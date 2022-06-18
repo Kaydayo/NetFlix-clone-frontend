@@ -19,7 +19,7 @@ const Success = () => {
           </div>
           <div className="success-main">
               <div className="pop">
-                  <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/undefined/external-popcorn-cinema-konkapp-flat-konkapp-2.png" />
+                  <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/undefined/external-popcorn-cinema-konkapp-flat-konkapp-2.png" alt='success-img' />
                   <div className="chck-mak">
                       <IoCheckmarkDone/>
                   </div>

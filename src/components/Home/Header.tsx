@@ -12,7 +12,7 @@ const Header = () => {
     const [show, setShow] = useState(false)
     const [pop, setPop] = useState(false)
     const [currEmail, setCurrEmail] = useState<string|null>("")
-    const [user, loading, error] = useAuthState(auth)
+    const [user, loading] = useAuthState(auth)
 
     const navigate = useNavigate()
 

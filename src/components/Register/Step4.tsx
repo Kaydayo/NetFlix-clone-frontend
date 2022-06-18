@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React from 'react'
 import {AiOutlineMobile} from 'react-icons/ai'
 import {IoMdCheckmark} from 'react-icons/io'
 import {BsTabletLandscape} from 'react-icons/bs'

@@ -1,15 +1,13 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useDispatch} from 'react-redux'
 import {addCount} from '../store/features/userSlice'
-import { useAuthState } from "react-firebase-hooks/auth";
-import {auth} from '../../firebase'
 import './Step1.css'
-import {useNavigate} from 'react-router';
+
 
 
 const Step1 = () => {
 
-  const navigate = useNavigate()
+
  
   const dispatch = useDispatch()
   return (

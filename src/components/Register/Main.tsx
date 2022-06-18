@@ -1,7 +1,6 @@
 import Step1 from './Step1'
 import './StepReg.css'
 import netflixImg from '../../Assets/netflixImg.png';
-import {useEffect, useState} from 'react';
 import {motion} from 'framer-motion'
 import Step2 from './Step2';
 import Step3 from './Step3';
@@ -16,7 +15,7 @@ import {changeSignUp} from '../store/features/userSlice';
 
 function Main() {
   // const [count, setCount] = useState<number>(0)
-  const [user, loading, error] = useAuthState(auth)
+  const [user] = useAuthState(auth)
   const navigate = useNavigate()
 
  
@@ -37,7 +36,10 @@ function Main() {
       <motion.div className="register-steps" initial={{opacity:0}} animate={{opacity:1}} exit={ {opacity:0}}>
         <div className="loginheader">
         <img src={netflixImg} alt="logo-nt" />
-        <button className="signout" onClick={user ? () => logout() : () => {
+        <button className="signout" onClick={user ? () => {
+          logout()
+          navigate("/")
+        } : () => {
           dispatch(changeSignUp(true))
           navigate("/")
         }}>

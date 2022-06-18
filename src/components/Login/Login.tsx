@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React from 'react'
 import netflixImg from '../../Assets/netflixImg.png'
 import Banner from './Banner'
 import './Login.css'

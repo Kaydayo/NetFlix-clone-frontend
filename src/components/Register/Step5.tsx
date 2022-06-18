@@ -4,8 +4,7 @@ import {GrNext} from 'react-icons/gr'
 import {IoIosLock} from 'react-icons/io'
 import './Step5.css'
 import {Rings} from 'react-loader-spinner'
-import {useDispatch, useSelector} from 'react-redux'
-import {addCount} from '../store/features/userSlice'
+import {useSelector} from 'react-redux'
 import {loadStripe} from '@stripe/stripe-js'
 
 
@@ -13,7 +12,6 @@ import {loadStripe} from '@stripe/stripe-js'
 const Step5 = () => {
     const [payClick, setPayClick] = useState<boolean>(false)
     const [stripeError, setStripeError] = useState(null);
-    const dispatch = useDispatch()
     const cp = useSelector((state:any)=> state.user.currentPrice)
     
     let stripePromise:any
@@ -50,10 +48,10 @@ const Step5 = () => {
         if(error)setStripeError(error.message)
         }
     
-    const handlePayClick = () => {
-        setPayClick(true)
-        setTimeout(() => dispatch(addCount()), 3000)
-    }
+    // const handlePayClick = () => {
+    //     setPayClick(true)
+    //     setTimeout(() => dispatch(addCount()), 3000)
+    // }
 
      if (stripeError) alert(stripeError);
   return (

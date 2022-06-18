@@ -3,18 +3,13 @@ import { IRow, IMovie} from '../../interfaces/movieInterface'
 import axios from '../../utils/axios'
 import  './Row.css'
 import Movie from './Movie'
-import Modal from './Modal'
 import YouTube from 'react-youtube'
 import movieTrailer from 'movie-trailer'
 
 function Row({title, fetchUrl, isLargeRow }:IRow) {
   const [movies, setMovies] = useState<Array<IMovie>>([])
-  const [modal, setShowModal] = useState<boolean>(false)
   const[trailerUrl, setTrailerUrl] = useState<string|null>("")
-  
-  const handleModal = () => {
-    setShowModal(true)
-  }
+ 
   
   const base_url = "https://image.tmdb.org/t/p/original"
 
