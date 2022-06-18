@@ -54,7 +54,7 @@ const registerWithEmailAndPassword = async (email: string, password:string) => {
             authProvider: "local",
             email,
         });
-        console.log('successful')
+       
     } catch (err:any) {
         console.error(err);
         alert(err.message);
