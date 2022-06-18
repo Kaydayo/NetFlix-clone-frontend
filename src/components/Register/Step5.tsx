@@ -32,8 +32,8 @@ const Step5 = () => {
         const checkoutOptions = {
             lineItems: [item],
             mode: 'payment',
-            successUrl: `${window.location.origin}/success`,
-            cancelUrl: `${window.location.origin}/cancel`
+            successUrl: `${window.location.origin}/stepRegister/main/success`,
+            cancelUrl: `${window.location.origin}/stepRegister/main/cancel`
         }
 
     

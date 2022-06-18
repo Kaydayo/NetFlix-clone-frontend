@@ -17,8 +17,8 @@ const AnimatedRoutes = () => {
         <Route path="/home" element={<Homepage />} />
         <Route path="/" element={<Login />} />
           <Route path="/stepRegister/main" element={<Main />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/cancel" element={<Cancel/>}/>
+          <Route path="/stepRegister/main/success" element={<Success />} />
+          <Route path="/stepRegister/main/cancel" element={<Cancel/>}/>
             </Routes>
             </AnimatePresence> 
    )
